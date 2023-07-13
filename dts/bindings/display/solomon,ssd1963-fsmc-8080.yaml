@@ -1,0 +1,107 @@
+# Copyright (c) 2022 Andreas Sandberg
+# SPDX-License-Identifier: Apache-2.0
+
+description: Solomon Systech SSD1963 800X480 display controller
+
+compatible: "solomon,ssd1963-fsmc-8080"
+
+include: [display-controller.yaml]
+
+properties:
+  reg:
+    required: false
+
+  pixel-format:
+    type: int
+    default: 0
+    enum:
+      - 0 # RGB565
+      - 1 # RGB888
+    description:
+      Display pixel format. Note that when RGB888 pixel format is selected
+      only 6 color bits are actually used being in practice equivalent to
+      RGB666.
+
+  rotation:
+    type: int
+    default: 0
+    enum:
+      - 0
+      - 90
+      - 180
+      - 270
+    description:
+      Display rotation (CW) in degrees.
+  
+  cmd-addr:
+    type: int
+    description:
+      Display CMD REG
+
+  data-addr:
+    type: int
+    description:
+      Display DATA REG    
+
+  pll:
+    type: uint8-array
+    default: [0x29, 0x02, 0x04]
+    description:
+      SSD1963 External crystal oscillator(Mhz)
+
+  lcd-freq:
+    type: int
+    description: |
+      SSD1963 LCD Freq(Mhz)   
+
+  backlight-gpios:
+    type: phandle-array
+    description: |
+      SSD1963 backlight gpio  
+
+  backlight-powers-gpios:
+    type: phandle-array
+    description: |
+      SSD1963 backlight gpio  
+
+  hsync-len:
+    type: int
+    required: true
+    description: |
+      Horizontal synchronization pulse duration of panel driven by this
+      controller, in pixels
+
+  vsync-len:
+    type: int
+    required: true
+    description: |
+      Vertical synchronization pulse duration of panel driven by this
+      controller, in lines
+
+  hback-porch:
+    type: int
+    required: true
+    description: |
+      Horizontal back porch duration of panel driven by this controller,
+      in pixels
+
+  vback-porch:
+    type: int
+    required: true
+    description: |
+      Vertical back porch duration of panel driven by this controller, in lines
+
+  hfront-porch:
+    type: int
+    required: true
+    description: |
+      Horizontal front porch duration of panel driven by this controller,
+      in pixels
+
+  vfront-porch:
+    type: int
+    required: true
+    description: |
+      Vertical front porch duration of panel driven by this controller, in lines
+
+
