@@ -1,0 +1,15 @@
+identifier: stm32f407zgt6
+name: ST STM32F407ZGT6
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 128
+flash: 1024
+supported:
+  - can
+  - pwm
+  - counter
+  - usb

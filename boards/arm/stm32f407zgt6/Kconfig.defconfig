@@ -1,0 +1,15 @@
+# STM32F407ZGT6 board configuration
+
+# Copyright (c) 2020 WuhanStudio
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_STM32F407ZGT6
+
+config BOARD
+	default "stm32f407zgt6"
+
+config MEMC
+	default y if SRAM
+
+endif # BOARD_STM32F407ZGT6
+

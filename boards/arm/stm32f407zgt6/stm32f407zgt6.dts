@@ -1,0 +1,451 @@
+/*
+ * Copyright (c) 2017 Linaro Limited
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <st/f4/stm32f407Xg.dtsi>
+#include <st/f4/stm32f407z(e-g)tx-pinctrl.dtsi>
+#include <zephyr/dt-bindings/memory-controller/stm32-fsmc-sram.h>
+
+/ {
+	model = "STMicroelectronics STM32F407ZGT6 board";
+	compatible = "st,stm32f407";
+
+	chosen {
+		zephyr,console = &usart2;
+		zephyr,shell-uart = &usart2;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,ccm = &ccm0;
+		zephyr,canbus = &can2;
+	};
+
+
+	leds {
+		compatible = "gpio-leds";
+		orange_led_3: led_3 {
+			gpios = <&gpioe 2 GPIO_ACTIVE_HIGH>;
+			label = "User LD3";
+		};
+		green_led_4: led_4 {
+			gpios = <&gpioe 3 GPIO_ACTIVE_HIGH>;
+			label = "User LD4";
+		};
+	};
+
+	aliases {
+		led0 = &green_led_4;
+		led1 = &orange_led_3;
+	};
+
+	soc {
+		pinctrl: pin-controller@40020000 {
+			/omit-if-no-ref/ fsmc_nbl0_pe0: fsmc_nbl0_pe0 {
+				pinmux = <STM32_PINMUX('E', 0, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_nbl1_pe1: fsmc_nbl1_pe1 {
+				pinmux = <STM32_PINMUX('E', 1, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_noe_pd4: fsmc_noe_pd4 {
+				pinmux = <STM32_PINMUX('D', 4, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_nwe_pd5: fsmc_nwe_pd5 {
+				pinmux = <STM32_PINMUX('D', 5, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_ne1_pd7: fsmc_ne1_pd7 {
+				pinmux = <STM32_PINMUX('D', 7, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_ne2_pg9: fsmc_ne2_pg9 {
+				pinmux = <STM32_PINMUX('G', 9, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_ne3_pg10: fsmc_ne3_pg10 {
+				pinmux = <STM32_PINMUX('G', 10, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_ne4_pg12: fsmc_ne4_pg12 {
+				pinmux = <STM32_PINMUX('G', 12, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a0_pf0: fsmc_a0_pf0 {
+				pinmux = <STM32_PINMUX('F', 0, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a1_pf1: fsmc_a1_pf1 {
+				pinmux = <STM32_PINMUX('F', 1, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_a2_pf2: fsmc_a2_pf2 {
+				pinmux = <STM32_PINMUX('F', 2, AF12)>;
+				slew-rate = "high-speed";
+			};		
+
+			/omit-if-no-ref/ fsmc_a3_pf3: fsmc_a3_pf3 {
+				pinmux = <STM32_PINMUX('F', 3, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_a4_pf4: fsmc_a4_pf4 {
+				pinmux = <STM32_PINMUX('F', 4, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a5_pf5: fsmc_a5_pf5 {
+				pinmux = <STM32_PINMUX('F', 5, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a6_pf12: fsmc_a6_pf12 {
+				pinmux = <STM32_PINMUX('F', 12, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a7_pf13: fsmc_a7_pf13 {
+				pinmux = <STM32_PINMUX('F', 13, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a8_pf14: fsmc_a8_pf14 {
+				pinmux = <STM32_PINMUX('F', 14, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a9_pf15: fsmc_a9_pf15 {
+				pinmux = <STM32_PINMUX('F', 15, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a10_pg0: fsmc_a10_pg0 {
+				pinmux = <STM32_PINMUX('G', 0, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a11_pg1: fsmc_a11_pg1 {
+				pinmux = <STM32_PINMUX('G', 1, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a12_pg2: fsmc_a12_pg2 {
+				pinmux = <STM32_PINMUX('G', 2, AF12)>;
+				slew-rate = "high-speed";
+			};		
+
+			/omit-if-no-ref/ fsmc_a13_pg3: fsmc_a13_pg3 {
+				pinmux = <STM32_PINMUX('G', 3, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_a14_pg4: fsmc_a14_pg4 {
+				pinmux = <STM32_PINMUX('G', 4, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_a15_pg5: fsmc_a15_pg5 {
+				pinmux = <STM32_PINMUX('G', 5, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a16_pd11: fsmc_a16_pd11 {
+				pinmux = <STM32_PINMUX('D', 11, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a17_pd12: fsmc_a17_pd12 {
+				pinmux = <STM32_PINMUX('D', 12, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a18_pd13: fsmc_a18_pd13 {
+				pinmux = <STM32_PINMUX('D', 13, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a19_pe3: fsmc_a19_pe3 {
+				pinmux = <STM32_PINMUX('E', 3, AF12)>;
+				slew-rate = "high-speed";
+			};		
+
+			/omit-if-no-ref/ fsmc_a20_pe4: fsmc_a20_pe4 {
+				pinmux = <STM32_PINMUX('E', 4, AF12)>;
+				slew-rate = "high-speed";
+			};		
+
+			/omit-if-no-ref/ fsmc_a21_pe5: fsmc_a21_pe5 {
+				pinmux = <STM32_PINMUX('E', 5, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_a22_pe6: fsmc_a22_pe6 {
+				pinmux = <STM32_PINMUX('E', 6, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_a23_pe2: fsmc_a23_pe2 {
+				pinmux = <STM32_PINMUX('E', 2, AF12)>;
+				slew-rate = "high-speed";
+			};		
+
+			/omit-if-no-ref/ fsmc_a24_pg13: fsmc_a24_pg13 {
+				pinmux = <STM32_PINMUX('G', 13, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d0_pd14: fsmc_d0_pd14 {
+				pinmux = <STM32_PINMUX('D', 14, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d1_pd15: fsmc_d1_pd15 {
+				pinmux = <STM32_PINMUX('D', 15, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d2_pd0: fsmc_d2_pd0 {
+				pinmux = <STM32_PINMUX('D', 0, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d3_pd1: fsmc_d3_pd1 {
+				pinmux = <STM32_PINMUX('D', 1, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d4_pe7: fsmc_d4_pe7 {
+				pinmux = <STM32_PINMUX('E', 7, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d5_pe8: fsmc_d5_pe8 {
+				pinmux = <STM32_PINMUX('E', 8, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d6_pe9: fsmc_d6_pe9 {
+				pinmux = <STM32_PINMUX('E', 9, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d7_pe10: fsmc_d7_pe10 {
+				pinmux = <STM32_PINMUX('E', 10, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d8_pe11: fsmc_d8_pe11 {
+				pinmux = <STM32_PINMUX('E', 11, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d9_pe12: fsmc_d9_pe12 {
+				pinmux = <STM32_PINMUX('E', 12, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d10_pe13: fsmc_d10_pe13 {
+				pinmux = <STM32_PINMUX('E', 13, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d11_pe14: fsmc_d11_pe14 {
+				pinmux = <STM32_PINMUX('E', 14, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d12_pe15: fsmc_d12_pe15 {
+				pinmux = <STM32_PINMUX('E', 15, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d13_pd8: fsmc_d13_pd8 {
+				pinmux = <STM32_PINMUX('D', 8, AF12)>;
+				slew-rate = "high-speed";
+			};
+
+			/omit-if-no-ref/ fsmc_d14_pd9: fsmc_d14_pd9 {
+				pinmux = <STM32_PINMUX('D', 9, AF12)>;
+				slew-rate = "high-speed";
+			};	
+
+			/omit-if-no-ref/ fsmc_d15_pd10: fsmc_d15_pd10 {
+				pinmux = <STM32_PINMUX('D', 10, AF12)>;
+				slew-rate = "high-speed";
+			};
+		};
+	};
+
+	fsmc: memory-controller@60000000 {
+		compatible = "st,stm32-fsmc";
+		reg = <0x60000000 0x400>;
+		clocks = <&rcc STM32_CLOCK_BUS_AHB3 0x00000001>;
+		status = "disable";
+
+		sram: sram {
+			compatible = "st,stm32-fsmc-sram";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "disabled";
+		};
+	};
+};
+
+&usart1 {
+	pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+&clk_lsi {
+	status = "okay";
+};
+
+&clk_hse {
+	clock-frequency = <DT_FREQ_M(8)>;
+	status = "okay";
+};
+
+&pll {
+	div-m = <8>;
+	mul-n = <336>;
+	div-p = <2>;
+	div-q = <7>;
+	clocks = <&clk_hse>;
+	status = "okay";
+};
+
+&rcc {
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(168)>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <4>;
+	apb2-prescaler = <2>;
+};
+
+&usart2 {
+	pinctrl-0 = <&usart2_tx_pa2 &usart2_rx_pa3>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+&rtc {
+	clocks = <&rcc STM32_CLOCK_BUS_APB1 0x10000000>,
+		 <&rcc STM32_SRC_LSI RTC_SEL(2)>;
+	status = "okay";
+
+	backup_regs {
+		status = "okay";
+	};
+};
+
+zephyr_udc0: &usbotg_fs {
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+&fsmc {
+	pinctrl-0 = <&fsmc_nbl0_pe0 &fsmc_nbl1_pe1 
+					&fsmc_noe_pd4 &fsmc_nwe_pd5 
+					&fsmc_ne3_pg10 &fsmc_ne4_pg12
+					&fsmc_a0_pf0 &fsmc_a1_pf1 &fsmc_a2_pf2 &fsmc_a3_pf3 
+					&fsmc_a4_pf4 &fsmc_a5_pf5 &fsmc_a6_pf12 &fsmc_a7_pf13 
+					&fsmc_a8_pf14 &fsmc_a9_pf15 &fsmc_a10_pg0 &fsmc_a11_pg1 
+					&fsmc_a12_pg2 &fsmc_a13_pg3 &fsmc_a14_pg4 &fsmc_a15_pg5
+					&fsmc_a16_pd11 &fsmc_a17_pd12 &fsmc_a18_pd13
+					&fsmc_d0_pd14 &fsmc_d1_pd15 &fsmc_d2_pd0 &fsmc_d3_pd1
+					&fsmc_d4_pe7 &fsmc_d5_pe8 &fsmc_d6_pe9 &fsmc_d7_pe10
+					&fsmc_d8_pe11 &fsmc_d9_pe12 &fsmc_d10_pe13 &fsmc_d11_pe14
+					&fsmc_d12_pe15 &fsmc_d13_pd8 &fsmc_d14_pd9 &fsmc_d15_pd10>;
+	pinctrl-names = "default";
+	status = "okay";
+	sram {
+		status = "okay";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		bank@3{
+			reg = <3>;
+			st,control = <	FSMC_DATA_ADDRESS_MUX_DISABLE 
+							FSMC_MEMORY_TYPE_SRAM 
+							FSMC_NORSRAM_MEM_BUS_WIDTH_16 
+							FSMC_BURST_ACCESS_MODE_DISABLE 
+							FSMC_WAIT_SIGNAL_POLARITY_LOW 
+							FSMC_WRAP_MODE_DISABLE 
+							FSMC_WAIT_TIMING_BEFORE_WS
+							FSMC_WRITE_OPERATION_ENABLE
+							FSMC_WAIT_SIGNAL_DISABLE
+							FSMC_EXTENDED_MODE_ENABLE
+							FSMC_ASYNCHRONOUS_WAIT_DISABLE
+							FSMC_WRITE_BURST_DISABLE
+							FSMC_PAGE_SIZE_NONE>;
+
+			st,timing = <2 0 8 0 16 17 FSMC_ACCESS_MODE_A>;
+			st,timing-ext = <2 0 8 0 16 17 FSMC_ACCESS_MODE_A>;
+		};
+
+		bank@4{
+			reg = <4>;
+			st,control = <	FSMC_DATA_ADDRESS_MUX_DISABLE 
+							FSMC_MEMORY_TYPE_SRAM 
+							FSMC_NORSRAM_MEM_BUS_WIDTH_16 
+							FSMC_BURST_ACCESS_MODE_DISABLE 
+							FSMC_WAIT_SIGNAL_POLARITY_LOW 
+							FSMC_WRAP_MODE_DISABLE 
+							FSMC_WAIT_TIMING_BEFORE_WS
+							FSMC_WRITE_OPERATION_ENABLE
+							FSMC_WAIT_SIGNAL_DISABLE
+							FSMC_EXTENDED_MODE_ENABLE
+							FSMC_ASYNCHRONOUS_WAIT_DISABLE
+							FSMC_WRITE_BURST_DISABLE
+							FSMC_PAGE_SIZE_NONE>;
+
+			st,timing = <9 15 60 0 16 17 FSMC_ACCESS_MODE_A>;
+			st,timing-ext = <15 0 15 0 16 17 FSMC_ACCESS_MODE_A>;
+		};
+	};
+
+	ssd1963: ssd1963 {
+		compatible = "solomon,ssd1963-fsmc-8080";
+		/* freq */
+		pll				= [1D 02 04];
+		lcd-freq		= <346030>;
+
+		/* bclk */
+		backlight-gpios = <&gpiob 12 GPIO_ACTIVE_HIGH>;
+		backlight-powers-gpios = <&gpiob 14 GPIO_ACTIVE_HIGH>;
+
+		/* LCD */
+		width 			= <800>;
+		height 			= <480>;
+		hsync-len 		= <1>;
+		vsync-len		= <1>;
+		hback-porch		= <46>;
+		vback-porch		= <23>;
+		hfront-porch	= <210>;
+		vfront-porch	= <22>;
+
+		pixel-format 	= <0>;			//RGB565
+		rotation 		= <0>;			//0 90 180 270
+		cmd-addr		= <0x6C00007E>;
+		data-addr		= <0x6C000080>;
+
+
+		status = "okay";
+	};
+};

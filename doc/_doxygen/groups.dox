@@ -1,0 +1,24 @@
+/**
+
+@defgroup os_services Operating System Services
+@brief Operating System Services
+@{
+@}
+
+@brief Device Driver APIs
+@defgroup io_interfaces Device Driver APIs
+@{
+@}
+
+@brief Miscellaneous Drivers APIs
+@defgroup misc_interfaces Miscellaneous Drivers APIs
+@ingroup io_interfaces
+@{
+@}
+
+@brief Testing
+@defgroup testing Testing
+@{
+@}
+
+*/
